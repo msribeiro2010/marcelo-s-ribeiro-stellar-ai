@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Rocket, Star, Moon, Mail } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import { Rocket, Star, Moon, Mail, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +14,8 @@ const ContactSection = () => {
     subject: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -21,14 +25,48 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
-    const mailtoLink = `mailto:marcelo@exemplo.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`
-    )}`;
-    
-    window.location.href = mailtoLink;
+    try {
+      // Configurações do EmailJS - você precisará configurar essas variáveis
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Marcelo S Ribeiro'
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      toast({
+        title: "Mensagem enviada!",
+        description: "Obrigado pelo contato. Responderei em breve!",
+      });
+      
+      // Limpar formulário após envio
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Tente novamente ou entre em contato diretamente.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -96,6 +134,7 @@ const ContactSection = () => {
                       onChange={handleInputChange}
                       placeholder="Seu nome"
                       required
+                      disabled={isLoading}
                       className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
                     />
                   </div>
@@ -108,6 +147,7 @@ const ContactSection = () => {
                       onChange={handleInputChange}
                       placeholder="seu@email.com"
                       required
+                      disabled={isLoading}
                       className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
                     />
                   </div>
@@ -121,6 +161,7 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     placeholder="Assunto do projeto"
                     required
+                    disabled={isLoading}
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
                   />
                 </div>
@@ -134,6 +175,7 @@ const ContactSection = () => {
                     placeholder="Conte-me sobre seu projeto..."
                     rows={6}
                     required
+                    disabled={isLoading}
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300 resize-none"
                   />
                 </div>
@@ -141,10 +183,20 @@ const ContactSection = () => {
                 <Button 
                   type="submit"
                   size="lg"
-                  className="w-full glass-card-dark hover:glass-card border-space-cyan hover:border-space-purple transition-all duration-300 text-white ai-glow hover-lift"
+                  disabled={isLoading}
+                  className="w-full glass-card-dark hover:glass-card border-space-cyan hover:border-space-purple transition-all duration-300 text-white ai-glow hover-lift disabled:opacity-50"
                 >
-                  <Mail className="w-5 h-5 mr-2" />
-                  Enviar Mensagem
+                  {isLoading ? (
+                    <>
+                      <div className="w-5 h-5 mr-2 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 mr-2" />
+                      Enviar Mensagem
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
