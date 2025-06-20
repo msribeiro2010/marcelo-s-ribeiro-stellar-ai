@@ -1,11 +1,36 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Rocket, Star, Moon } from 'lucide-react';
+import { Rocket, Star, Moon, Mail } from 'lucide-react';
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const mailtoLink = `mailto:marcelo@exemplo.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+      `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`
+    )}`;
+    
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section className="py-24 cosmic-bg relative overflow-hidden">
       {/* Background Elements */}
@@ -61,12 +86,16 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="lg:col-span-3">
             <div className="glass-card-dark p-8 md:p-12 animate-slide-left">
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-white font-medium mb-2">Nome</label>
                     <Input 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       placeholder="Seu nome"
+                      required
                       className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
                     />
                   </div>
@@ -74,7 +103,11 @@ const ContactSection = () => {
                     <label className="block text-white font-medium mb-2">E-mail</label>
                     <Input 
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="seu@email.com"
+                      required
                       className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
                     />
                   </div>
@@ -83,7 +116,11 @@ const ContactSection = () => {
                 <div>
                   <label className="block text-white font-medium mb-2">Assunto</label>
                   <Input 
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
                     placeholder="Assunto do projeto"
+                    required
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
                   />
                 </div>
@@ -91,8 +128,12 @@ const ContactSection = () => {
                 <div>
                   <label className="block text-white font-medium mb-2">Mensagem</label>
                   <Textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Conte-me sobre seu projeto..."
                     rows={6}
+                    required
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300 resize-none"
                   />
                 </div>
@@ -102,7 +143,7 @@ const ContactSection = () => {
                   size="lg"
                   className="w-full glass-card-dark hover:glass-card border-space-cyan hover:border-space-purple transition-all duration-300 text-white ai-glow hover-lift"
                 >
-                  <Rocket className="w-5 h-5 mr-2" />
+                  <Mail className="w-5 h-5 mr-2" />
                   Enviar Mensagem
                 </Button>
               </form>
