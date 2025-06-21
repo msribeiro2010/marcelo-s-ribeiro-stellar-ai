@@ -20,5 +20,5 @@ export default defineConfig(({ command, mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: command === 'build' ? '/stellar-ai/' : '/',
+  base: command === 'build' ? '/marcelo-s-ribeiro-stellar-ai/' : '/',
 }));
