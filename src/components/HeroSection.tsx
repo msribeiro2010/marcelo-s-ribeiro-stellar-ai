@@ -26,10 +26,10 @@ const HeroSection = () => {
           </div>
           
           {/* Main Title */}
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent leading-tight flex items-center justify-center">
-            <span>Marcelo</span>
-            <Zap className="w-16 h-16 mx-2 fill-current" />
-            <span>Ribeiro</span>
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight flex items-center justify-center">
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">Marcelo</span>
+            <Zap className="w-16 h-16 mx-2 text-yellow-400 fill-yellow-400" />
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">Ribeiro</span>
           </h1>
           
           {/* Description */}
