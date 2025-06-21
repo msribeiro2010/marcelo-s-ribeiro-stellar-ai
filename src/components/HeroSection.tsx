@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Rocket, Star, Moon } from 'lucide-react';
+import { Rocket, Star, Moon, Zap } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -26,8 +26,10 @@ const HeroSection = () => {
           </div>
           
           {/* Main Title */}
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent leading-tight">
-            Marcelo S Ribeiro
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent leading-tight flex items-center justify-center">
+            <span>Marcelo</span>
+            <Zap className="w-16 h-16 mx-2 fill-current" />
+            <span>Ribeiro</span>
           </h1>
           
           {/* Description */}
