@@ -32,7 +32,7 @@ const HeroSection = () => {
           
           {/* Description */}
           <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
-            Especialista em <span className="text-cyan-400 font-semibold">Inteligência Artificial</span>, 
+          IA e Desenvolvimento: Transformando Ideias em Soluções<span className="text-cyan-400 font-semibold">Inteligência Artificial</span>, 
             <span className="text-purple-400 font-semibold"> Backend</span> e 
             <span className="text-pink-400 font-semibold"> Frontend</span> Development
           </p>
