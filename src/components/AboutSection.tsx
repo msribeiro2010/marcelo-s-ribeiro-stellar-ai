@@ -7,7 +7,7 @@ const AboutSection = () => {
     {
       icon: <Star className="w-8 h-8" />,
       title: "20+ Anos de Experiência",
-      description: "Duas décadas desenvolvendo soluções tecnológicas inovadoras",
+      description: "Mais de duas décadas desenvolvendo soluções tecnológicas no TRT15",
       gradient: "from-space-purple to-space-blue"
     },
     {
@@ -38,8 +38,9 @@ const AboutSection = () => {
             Sobre Mim
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Profissional com mais de duas décadas de experiência em desenvolvimento de software, 
-            especializado em tecnologias emergentes e soluções de inteligência artificial.
+            Formado em Matemática com Pós-graduação em Desenvolvimento de Software para Web. 
+            Mais de 20 anos de experiência em TI no TRT15, especializado em tecnologias emergentes 
+            e soluções de inteligência artificial.
           </p>
         </div>
         
@@ -69,14 +70,14 @@ const AboutSection = () => {
         {/* Skills Section */}
         <div className="glass-card-dark p-8 md:p-12 animate-slide-up">
           <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            Tecnologias & Especialidades
+            Formação & Especialidades
           </h3>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h4 className="text-lg font-semibold text-space-cyan mb-4">Backend Development</h4>
+              <h4 className="text-lg font-semibold text-space-cyan mb-4">Formação Acadêmica</h4>
               <div className="space-y-3">
-                {['Java', 'Python', 'Node.js', 'APIs REST', 'Microserviços'].map((skill, index) => (
+                {['Graduação em Matemática', 'Pós-graduação em Desenvolvimento Web', '20+ anos de experiência no TRT15'].map((skill, index) => (
                   <div key={skill} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-space-cyan rounded-full animate-pulse"></div>
                     <span className="text-white/80">{skill}</span>
@@ -86,7 +87,7 @@ const AboutSection = () => {
             </div>
             
             <div>
-              <h4 className="text-lg font-semibold text-space-purple mb-4">Frontend & IA</h4>
+              <h4 className="text-lg font-semibold text-space-purple mb-4">Tecnologias & IA</h4>
               <div className="space-y-3">
                 {['JavaScript/TypeScript', 'React', 'Machine Learning', 'Banco de Dados', 'DevOps'].map((skill, index) => (
                   <div key={skill} className="flex items-center space-x-3">

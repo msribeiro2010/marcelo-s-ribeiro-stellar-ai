@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -34,9 +35,9 @@ const ContactSection = () => {
       const publicKey = 'K7F_DE0sdVjTwV0P5';
       
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
+        name: formData.name,
+        email: formData.email,
+        title: formData.subject,
         message: formData.message,
         to_name: 'Marcelo S Ribeiro'
       };
@@ -113,8 +114,8 @@ const ContactSection = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Experiência</h3>
               <p className="text-white/70">
-                Mais de 20 anos desenvolvendo soluções tecnológicas para empresas de todos os tamanhos, 
-                sempre focado em inovação e qualidade.
+                Formado em Matemática com Pós-graduação em Desenvolvimento Web. 
+                Mais de 20 anos de experiência em TI no TRT15, sempre focado em inovação e qualidade.
               </p>
             </div>
           </div>
