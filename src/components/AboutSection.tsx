@@ -11,7 +11,7 @@ const AboutSection = () => {
     },
     {
       icon: <Rocket className="w-8 h-8" />,
-      title: "Especialista em IA",
+      title: "Especializando em IA",
       description: "Implementando soluções de inteligência artificial de ponta",
       gradient: "from-blue-500 to-cyan-500"
     },
@@ -40,7 +40,7 @@ const AboutSection = () => {
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
             Formado em Matemática com Pós-graduação em Desenvolvimento de Software para Web. 
-            Mais de 20 anos de experiência em TI no TRT15, especializado em tecnologias emergentes 
+            Mais de 20 anos de experiência em TI no TRT15, especializando em tecnologias emergentes 
             e soluções de inteligência artificial.
           </p>
         </div>
