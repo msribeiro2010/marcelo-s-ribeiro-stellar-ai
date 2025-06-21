@@ -1,73 +1,92 @@
-# Welcome to your Lovable project
+# 🚀 Marcelo S Ribeiro - Portfolio
 
-## Project info
+Portfolio pessoal desenvolvido com React, TypeScript e Tailwind CSS, apresentando minha experiência como desenvolvedor Full Stack e especialista em IA.
 
-**URL**: https://lovable.dev/projects/9c7e1de3-009b-4089-ab87-3c09cf646921
+## 🌟 Características
 
-## How can I edit this code?
+- **Design Moderno**: Interface elegante com tema espacial
+- **Responsivo**: Otimizado para desktop e mobile
+- **Animações Suaves**: Transições e efeitos visuais
+- **Componentes Reutilizáveis**: Arquitetura baseada em componentes
+- **TypeScript**: Tipagem estática para maior confiabilidade
 
-There are several ways of editing your application.
+## 🛠️ Tecnologias
 
-**Use Lovable**
+- **React 18** - Biblioteca para interfaces de usuário
+- **TypeScript** - Superset do JavaScript com tipagem estática
+- **Tailwind CSS** - Framework CSS utilitário
+- **Vite** - Build tool e servidor de desenvolvimento
+- **Lucide React** - Ícones modernos
+- **Radix UI** - Componentes acessíveis
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9c7e1de3-009b-4089-ab87-3c09cf646921) and start prompting.
+## 📦 Instalação
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+# Clone o repositório
+git clone https://github.com/SEU_USUARIO/marcelo-s-ribeiro-stellar-ai.git
 
-**Use your preferred IDE**
+# Entre na pasta
+cd marcelo-s-ribeiro-stellar-ai
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Instale as dependências
+npm install
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Executando o projeto
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Servidor de desenvolvimento
+npm run dev
 
-**Use GitHub Codespaces**
+# Build para produção
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview da versão de produção
+npm run preview
+```
 
-## What technologies are used for this project?
+## 📋 Scripts disponíveis
 
-This project is built with:
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Cria a versão otimizada para produção
+- `npm run preview` - Visualiza a versão de produção localmente
+- `npm run lint` - Executa o linter para verificar o código
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🌐 Deploy
 
-## How can I deploy this project?
+Este projeto está configurado para deploy automático no GitHub Pages. Veja o arquivo [DEPLOY_GITHUB_PAGES.md](./DEPLOY_GITHUB_PAGES.md) para instruções detalhadas.
 
-Simply open [Lovable](https://lovable.dev/projects/9c7e1de3-009b-4089-ab87-3c09cf646921) and click on Share -> Publish.
+## 📁 Estrutura do projeto
 
-## Can I connect a custom domain to my Lovable project?
+```
+src/
+├── components/          # Componentes React
+│   ├── ui/             # Componentes de interface
+│   ├── AboutSection.tsx
+│   ├── ContactSection.tsx
+│   ├── HeroSection.tsx
+│   └── Navigation.tsx
+├── pages/              # Páginas da aplicação
+├── hooks/              # Hooks customizados
+├── lib/                # Utilitários
+└── styles/             # Estilos globais
+```
 
-Yes, you can!
+## 👨‍💻 Sobre o desenvolvedor
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+**Marcelo S Ribeiro**
+- 🎓 Graduado em Matemática
+- 🎓 Pós-graduado em Desenvolvimento de Software para Web
+- 💼 20+ anos de experiência em TI no TRT15
+- 🤖 Especialista em Inteligência Artificial
+- 🔧 Full Stack Developer (Backend + Frontend)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📧 Contato
+
+- **Email**: [seu-email@exemplo.com]
+- **LinkedIn**: [seu-linkedin]
+- **GitHub**: [seu-github]
+
+---
+
+**Desenvolvido com ❤️ e muita ☕ por Marcelo S Ribeiro**

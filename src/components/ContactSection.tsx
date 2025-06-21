@@ -1,11 +1,9 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Rocket, Star, Moon, Mail, Send } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import { Rocket, Star, Moon, Send } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -30,23 +28,12 @@ const ContactSection = () => {
     setIsLoading(true);
     
     try {
-      const serviceId = 'service_mh1iza9';
-      const templateId = 'template_pj3lwlp';
-      const publicKey = 'K7F_DE0sdVjTwV0P5';
-      
-      const templateParams = {
-        name: formData.name,
-        email: formData.email,
-        title: formData.subject,
-        message: formData.message,
-        to_name: 'Marcelo S Ribeiro'
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      // Simulação de envio - removi emailjs para evitar dependência externa
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast({
-        title: "Mensagem enviada!",
-        description: "Obrigado pelo contato. Responderei em breve!",
+        title: "Mensagem simulada!",
+        description: "Formulário funcionando. EmailJS será configurado posteriormente.",
       });
       
       // Limpar formulário após envio
@@ -57,10 +44,10 @@ const ContactSection = () => {
         message: ''
       });
     } catch (error) {
-      console.error('Erro ao enviar email:', error);
+      console.error('Erro:', error);
       toast({
-        title: "Erro ao enviar mensagem",
-        description: "Tente novamente ou entre em contato diretamente.",
+        title: "Erro simulado",
+        description: "Esta é apenas uma simulação.",
         variant: "destructive"
       });
     } finally {
@@ -69,21 +56,23 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-24 cosmic-bg relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-slate-800 via-purple-900 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 space-dots opacity-30"></div>
-      <div className="absolute top-1/4 left-0 w-72 h-72 bg-gradient-to-br from-space-purple to-space-blue rounded-full opacity-10 blur-3xl animate-float"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-br from-space-cyan to-space-pink rounded-full opacity-5 blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px]"></div>
+      </div>
+      <div className="absolute top-1/4 left-0 w-72 h-72 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full opacity-10 blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-br from-cyan-500 to-pink-500 rounded-full opacity-5 blur-3xl animate-pulse"></div>
       
       <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16 animate-slide-up">
+        <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center space-x-2 mb-6">
-            <Star className="w-5 h-5 text-space-cyan animate-glow" />
-            <span className="text-space-cyan font-medium tracking-wide">VAMOS TRABALHAR JUNTOS</span>
-            <Star className="w-5 h-5 text-space-cyan animate-glow" />
+            <Star className="w-5 h-5 text-cyan-400 animate-pulse" />
+            <span className="text-cyan-400 font-medium tracking-wide">VAMOS TRABALHAR JUNTOS</span>
+            <Star className="w-5 h-5 text-cyan-400 animate-pulse" />
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent mb-6">
             Entre em Contato
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
@@ -94,8 +83,8 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="glass-card-dark p-8 hover-lift animate-slide-right">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-space-purple to-space-blue flex items-center justify-center mb-6">
+            <div className="backdrop-blur-lg bg-black/20 border border-white/10 rounded-3xl shadow-2xl p-8 hover:scale-105 transition-transform duration-300 animate-fade-in">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6">
                 <Rocket className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Especialidades</h3>
@@ -108,8 +97,8 @@ const ContactSection = () => {
               </ul>
             </div>
             
-            <div className="glass-card-dark p-8 hover-lift animate-slide-right" style={{animationDelay: '0.2s'}}>
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-space-cyan to-space-pink flex items-center justify-center mb-6">
+            <div className="backdrop-blur-lg bg-black/20 border border-white/10 rounded-3xl shadow-2xl p-8 hover:scale-105 transition-transform duration-300 animate-fade-in">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-pink-500 flex items-center justify-center mb-6">
                 <Moon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Experiência</h3>
@@ -122,7 +111,7 @@ const ContactSection = () => {
           
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <div className="glass-card-dark p-8 md:p-12 animate-slide-left">
+            <div className="backdrop-blur-lg bg-black/20 border border-white/10 rounded-3xl shadow-2xl p-8 md:p-12 animate-fade-in">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -134,7 +123,7 @@ const ContactSection = () => {
                       placeholder="Seu nome"
                       required
                       disabled={isLoading}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400 transition-colors duration-300"
                     />
                   </div>
                   <div>
@@ -147,7 +136,7 @@ const ContactSection = () => {
                       placeholder="seu@email.com"
                       required
                       disabled={isLoading}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400 transition-colors duration-300"
                     />
                   </div>
                 </div>
@@ -161,7 +150,7 @@ const ContactSection = () => {
                     placeholder="Assunto do projeto"
                     required
                     disabled={isLoading}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400 transition-colors duration-300"
                   />
                 </div>
                 
@@ -175,7 +164,7 @@ const ContactSection = () => {
                     rows={6}
                     required
                     disabled={isLoading}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-space-cyan transition-colors duration-300 resize-none"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400 transition-colors duration-300 resize-none"
                   />
                 </div>
                 
@@ -183,7 +172,7 @@ const ContactSection = () => {
                   type="submit"
                   size="lg"
                   disabled={isLoading}
-                  className="w-full glass-card-dark hover:glass-card border-space-cyan hover:border-space-purple transition-all duration-300 text-white ai-glow hover-lift disabled:opacity-50"
+                  className="w-full backdrop-blur-lg bg-black/20 border border-cyan-400 hover:border-purple-400 transition-all duration-300 text-white hover:scale-105 disabled:opacity-50"
                 >
                   {isLoading ? (
                     <>
