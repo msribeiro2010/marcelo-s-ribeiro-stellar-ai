@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode }) => ({
   },
   plugins: [
     react(),
-    mode === "development" &&
+    (mode === "development" || !mode) &&
       componentTagger(),
   ].filter(Boolean),
   resolve: {
